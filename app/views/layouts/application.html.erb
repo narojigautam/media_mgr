@@ -12,6 +12,7 @@
   <% if user_signed_in? %>
     <li>
       <span><%= welcome_message %></span>
+      <%= link_to "Home", root_path %>
       <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
     </li>
   <% else %>

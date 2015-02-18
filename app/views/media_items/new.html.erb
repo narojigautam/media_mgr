@@ -1,0 +1,10 @@
+<h3>Create New Media Item</h3>
+<%= form_for @media_item do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %> <br/>
+  <%= f.label :source %>
+  <%= f.text_field :source %> <br/>
+  <%= f.label :description %>
+  <%= f.text_area :description %> <br/>
+  <%= f.submit "Create" %>
+<% end %>
