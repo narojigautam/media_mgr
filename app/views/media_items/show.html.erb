@@ -1,6 +1,15 @@
 <h1>Media Item Details</h1>
 <h3><%= @media_item.title %></h3>
-<span><%= @media_item.source %></span><br/>
+<% if @media_item.image? %>
+  <img src="<%= @media_item.source %>" width="350"></img>
+<% elsif @media_item.video? %>
+  <video width="350" controls>
+    <source src="<%= @media_item.source %>" type="video/<%= @media_item.media_type %>">
+  </video>
+<% else %>
+  <%= link_to @media_item.title, @media_item.source %>
+<% end %>
+<br/>
 <p><%= @media_item.description %></p>
 <% if @media_item.shared %>
   <%= link_to "Unshare", toggle_share_media_item_path(@media_item) %>

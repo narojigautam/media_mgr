@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218182421) do
+ActiveRecord::Schema.define(version: 20150218191223) do
 
   create_table "media_items", force: true do |t|
     t.string   "title"
     t.string   "source"
-    t.string   "type"
+    t.string   "media_type"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
