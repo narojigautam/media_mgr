@@ -1,24 +1,5 @@
 <h1>Media Files</h1>
-<table id="media-items-list">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @media_items.each do |media_item| %>
-      <tr>
-        <td>
-          <%= link_to media_item_path(media_item) do %>
-            <%= media_item.title %>
-          <% end %>
-        </td>
-        <td><%= media_item.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render "list", media_items: @media_items %>
 
 <%= link_to "Create", new_media_item_path %>
 

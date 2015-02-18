@@ -14,7 +14,12 @@
       <span><%= welcome_message %></span>
       <%= link_to "Home", root_path %>
       <%= link_to "Shared Media", shared_media_media_items_path %>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %><br/>
+      <%= form_tag search_media_path, id: "search" do %>
+        <%= label_tag :keyword, "Search" %>
+        <%= text_field_tag :keyword %>
+        <%= submit_tag "Search" %>
+      <% end %>
     </li>
   <% else %>
     <li>

@@ -45,6 +45,11 @@ class MediaItemsController < ApplicationController
   	@shared_media_items = MediaItem.where(shared: true)
   end
 
+  def search
+    @keyword = params[:keyword]
+    @results = MediaItem.where(title: @keyword)
+  end
+
   private
 
   def error_messages(media_item)

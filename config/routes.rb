@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   	get :toggle_share, on: :member
   	get :shared_media, on: :collection
   end
+  match 'media_items/search', to: 'media_items#search', via: [:post], as: :search_media
 end
