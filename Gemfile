@@ -16,6 +16,7 @@ group :test do
   gem 'guard-rspec'
   gem 'minitest'
   gem 'shoulda-matchers'
+  gem 'capybara'
 end
 
 group :development, :test do
