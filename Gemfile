@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'devise'
 
 group :test do
   gem 'rspec-rails', '~> 3.0.0'
