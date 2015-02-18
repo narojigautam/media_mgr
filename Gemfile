@@ -13,10 +13,10 @@ group :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-mocks'
   gem 'guard-rspec'
-  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development, :test do
   gem 'pry', '~> 0.9.10'
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'spring'
 end
