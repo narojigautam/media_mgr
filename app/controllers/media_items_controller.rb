@@ -24,6 +24,18 @@ class MediaItemsController < ApplicationController
   	@media_item = MediaItem.find(params[:id])
   end
 
+  def toggle_share
+  	@media_item = current_user.media_items.find(params[:id])
+  	if @media_item
+  	  current_state = @media_item.shared
+  	  @media_item.update_attributes(shared: !current_state)
+  	  alert_message = "Media Item #{current_state ? 'Unshared' : 'Shared'}"
+  	  redirect_to @media_item, flash: { notice: alert_message }
+  	else
+  	  redirect_to @media_item, flash: { alert: "Media Item Share Failed" }
+  	end
+  end
+
   private
 
   def error_messages(media_item)

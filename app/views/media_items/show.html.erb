@@ -2,3 +2,8 @@
 <h3><%= @media_item.title %></h3>
 <span><%= @media_item.source %></span><br/>
 <p><%= @media_item.description %></p>
+<% if @media_item.shared %>
+  <%= link_to "Unshare", toggle_share_media_item_path(@media_item) %>
+<% else %>
+  <%= link_to "Share", toggle_share_media_item_path(@media_item) %>
+<% end %>

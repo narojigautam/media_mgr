@@ -17,7 +17,7 @@ describe "Media Item Creation", :type => :feature do
       expect(page).to have_content 'Avengers'
     end
 
-    it "throws erros if incomplete data is submitted" do
+    it "throws erros if incomplete data is submitted for media item creation" do
       visit new_media_item_path
       fill_in 'Title', with: ""
       fill_in 'Source', with: ""
@@ -25,6 +25,25 @@ describe "Media Item Creation", :type => :feature do
       click_button "Create"
       expect(page).to have_content "Title can't be blank"
       expect(page).to have_content "Source can't be blank"
+    end
+  end
+
+  context "when a user is on a media items details page" do
+    before do
+      sign_in_user(user, 'password')
+    end
+
+    let(:item) { FactoryGirl.create(:media_item, user: user, title: "awesome") }
+    
+    before do
+      visit media_item_path(item)
+    end
+    
+    it "allows user to toggle media item share state" do
+      click_on "Share"
+      expect(page).to have_content "Media Item Shared"
+      click_on "Unshare"
+      expect(page).to have_content "Media Item Unshared"
     end
   end
 end
