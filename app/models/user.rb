@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :media_items, :foreign_key => "user_id"
+
+  def owner?(media_item)
+  	media_item.user == self
+  end
 end

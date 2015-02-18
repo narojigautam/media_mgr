@@ -22,6 +22,11 @@ class MediaItemsController < ApplicationController
 
   def show
   	@media_item = MediaItem.find(params[:id])
+  	if @media_item.shared or current_user.owner?(@media_item)
+  	  render :show
+  	else
+  	  redirect_to media_items_path, flash: { alert: "This medis item is not public" }
+  	end
   end
 
   def toggle_share
@@ -34,6 +39,10 @@ class MediaItemsController < ApplicationController
   	else
   	  redirect_to @media_item, flash: { alert: "Media Item Share Failed" }
   	end
+  end
+
+  def shared_media
+  	@shared_media_items = MediaItem.where(shared: true)
   end
 
   private

@@ -11,8 +11,8 @@
 <% end %>
 <br/>
 <p><%= @media_item.description %></p>
-<% if @media_item.shared %>
-  <%= link_to "Unshare", toggle_share_media_item_path(@media_item) %>
-<% else %>
-  <%= link_to "Share", toggle_share_media_item_path(@media_item) %>
+<% if current_user.owner?(@media_item) %>
+  <%= link_to toggle_share_media_item_path(@media_item) do %>
+    <%= media_shareable_action(@media_item) %>
+  <% end %>
 <% end %>

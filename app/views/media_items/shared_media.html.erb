@@ -1,0 +1,23 @@
+<h1>Shared Media Items</h1>
+<table id="shared-media-items-list">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shared_media_items.each do |media_item| %>
+      <tr>
+        <td>
+          <%= link_to media_item_path(media_item) do %>
+            <%= media_item.title %>
+          <% end %>
+        </td>
+        <td><%= media_item.description %></td>
+        <td><%= media_item.user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
