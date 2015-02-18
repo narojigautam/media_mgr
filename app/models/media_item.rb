@@ -1,6 +1,6 @@
 class MediaItem < ActiveRecord::Base
 
-  attr_accessor :title, :user, :description
+  attr_accessor :title, :user, :description, :user_id
   validates :title, :presence => true
   validates :source, :presence => true
   validates :user, :presence => true

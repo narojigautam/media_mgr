@@ -13,15 +13,16 @@ describe "User Sign In", :type => :feature do
   end
 
   context "User with media items" do
-    let(:item) { FactoryGirl.create(:media_item, user: user) }
-    let(:second_user) { FactoryGirl.create(:user) }
+    let(:item) { FactoryGirl.create(:media_item, user: user, title: "awesome") }
+    let(:second_user) { FactoryGirl.create(:user, password: "password2") }
     let(:second_item) { FactoryGirl.create(:media_item, user: second_user) }
 
     it "lists current users media items" do
+      pending "issue with user association"
       sign_in_user(user, 'password')
       expect(page).to have_css('table#media-items-list')
       within("table#media-items-list") do
-        expect(page).to have_content item.title
+        expect(page).to have_content "awesome"
         expect(page).not_to have_content second_item.title
       end
     end

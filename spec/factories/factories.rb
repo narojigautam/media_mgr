@@ -4,9 +4,9 @@ FactoryGirl.define do
   end
 
   factory :media_item do
-    sequence(:title, 1000) { |n| "media-item{n}" }
+    title { "media-item" }
     description { "blah blah blah" }
-    user
     source { "link to source" }
+    user
   end
 end

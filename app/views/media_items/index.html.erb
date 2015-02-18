@@ -7,9 +7,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Test</td>
-      <td>Test</td>
-    </tr>
+    <% @media_items.each do |media_item| %>
+      <tr>
+        <td><%= media_item.title %></td>
+        <td><%= media_item.description %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
