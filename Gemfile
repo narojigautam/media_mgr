@@ -14,6 +14,8 @@ group :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-mocks'
   gem 'guard-rspec'
+  gem 'minitest'
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do
