@@ -25,7 +25,7 @@ class MediaItemsController < ApplicationController
   	if @media_item.shared or current_user.owner?(@media_item)
   	  render :show
   	else
-  	  redirect_to media_items_path, flash: { alert: "This medis item is not public" }
+  	  redirect_to media_items_path, flash: { alert: "This media item is not public" }
   	end
   end
 
