@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218150707) do
+ActiveRecord::Schema.define(version: 20150218152946) do
+
+  create_table "media_items", force: true do |t|
+    t.string   "title"
+    t.string   "source"
+    t.string   "type"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
