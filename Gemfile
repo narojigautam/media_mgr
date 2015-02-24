@@ -9,6 +9,7 @@ gem 'therubyracer',  platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
+gem 'haml-rails'
 
 group :test do
   gem 'rspec-rails', '~> 3.0.0'

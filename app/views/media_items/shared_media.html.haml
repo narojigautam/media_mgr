@@ -1,0 +1,15 @@
+%h1 Shared Media Items
+%table#shared-media-items-list
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Author
+  %tbody
+    - @shared_media_items.each do |media_item|
+      %tr
+        %td
+          = link_to media_item_path(media_item) do
+            = media_item.title
+        %td= media_item.description
+        %td= media_item.user.email

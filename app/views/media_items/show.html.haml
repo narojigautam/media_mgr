@@ -1,0 +1,14 @@
+%h1 Media Item Details
+%h3= @media_item.title
+- if @media_item.image?
+  %img{:src => "#{@media_item.source}", :width => "350"}/
+- elsif @media_item.video?
+  %video{:controls => "", :width => "350"}
+    %source{:src => "#{@media_item.source}", :type => "video/#{@media_item.media_type}"}
+- else
+  = link_to @media_item.title, @media_item.source
+%br/
+%p= @media_item.description
+- if current_user.owner?(@media_item)
+  = link_to toggle_share_media_item_path(@media_item) do
+    = media_shareable_action(@media_item)

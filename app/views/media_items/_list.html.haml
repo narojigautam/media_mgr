@@ -1,0 +1,12 @@
+%table#media-items-list
+  %thead
+    %tr
+      %th Title
+      %th Description
+  %tbody
+    - media_items.each do |media_item|
+      %tr
+        %td
+          = link_to media_item_path(media_item) do
+            = media_item.title
+        %td= media_item.description
