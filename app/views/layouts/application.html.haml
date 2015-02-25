@@ -7,20 +7,28 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %p.notice= notice
-    %p.alert= alert
-    - if user_signed_in?
-      %li
-        %span= welcome_message
-        = link_to "Home", root_path
-        = link_to "Shared Media", shared_media_media_items_path
-        = link_to('Logout', destroy_user_session_path, :method => :delete)
-        %br/
+    .container
+      .header
+        %p.notice= notice
+        %p.alert= alert
+        %ul.header-ul
+          - if user_signed_in?
+            %li
+              = link_to "Home", root_path
+            %li
+              = link_to "Shared Media", shared_media_media_items_path
+            %li
+              = link_to('Logout', destroy_user_session_path, :method => :delete)
+            %li
+              %span= welcome_message
+          - else
+            %li
+              = link_to('Login', new_user_session_path)
         = form_tag search_media_path, id: "search" do
           = label_tag :keyword, "Search"
           = text_field_tag :keyword
           = submit_tag "Search"
-    - else
-      %li
-        = link_to('Login', new_user_session_path)
-    = yield
+      .content
+        = yield
+      .footer
+        %span "Media Manager"  
