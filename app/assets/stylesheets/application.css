@@ -27,7 +27,8 @@ ul.header-ul, ul.content-ul {
 .content-ul li {
   width: 150px;
   height: 200px;
-  overflow: hidden;
+  margin-top: 0px;
+  vertical-align: top;
 }
 
 .header form {

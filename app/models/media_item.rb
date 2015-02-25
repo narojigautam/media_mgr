@@ -7,6 +7,8 @@ class MediaItem < ActiveRecord::Base
 
   before_save :set_type
 
+  delegate :email, :to => :user, :prefix => true
+
   def image?
   	self.media_type == "image"
   end

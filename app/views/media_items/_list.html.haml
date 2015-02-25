@@ -5,3 +5,6 @@
       = link_to media_item_path(media_item) do
         = media_item.title
       %p= media_item.description
+      %span
+        - if media_item.shared
+          = media_item.user_email
