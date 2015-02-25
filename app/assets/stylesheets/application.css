@@ -14,16 +14,35 @@
  *= require_self
  */
 
-ul.header-ul {
+ul.header-ul, ul.content-ul {
   list-style-type: none;
   padding-left: 0px;
 }
 
-.header-ul li {
-  display: inline;
+.header-ul li, .content-ul li {
+  display: inline-block;
   padding-left: 20px;
+}
+
+.content-ul li {
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
 }
 
 .header form {
   padding-left: 20px;
+}
+
+.footer {
+  padding-top: 30px;
+}
+
+ul.content-ul p {
+  margin: 0px 0;
+}
+
+.content-ul img {
+  width: 150px;
+  height: 150px;
 }
