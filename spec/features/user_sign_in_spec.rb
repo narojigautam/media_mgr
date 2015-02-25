@@ -9,7 +9,7 @@ describe "User Sign In", :type => :feature do
 
   it "lands user on media items list page" do
     sign_in_user(user, 'password')
-    expect(page).to have_css('table#media-items-list')
+    expect(page).to have_css('#media-items-list')
   end
 
   context "User with media items" do
