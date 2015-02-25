@@ -47,7 +47,7 @@ class MediaItemsController < ApplicationController
 
   def search
     @keyword = params[:keyword]
-    @results = MediaItem.where(title: @keyword)
+    @results = MediaItem.where([ 'lower(title) LIKE ? or lower(description) LIKE ?' , @keyword.downcase, @keyword.downcase ])
   end
 
   private

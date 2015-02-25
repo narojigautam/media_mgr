@@ -24,7 +24,7 @@
           - else
             %li
               = link_to('Login', new_user_session_path)
-        = form_tag search_media_path, id: "search" do
+        = form_tag search_media_path, id: "search", :method => :get do
           = label_tag :keyword, "Search"
           = text_field_tag :keyword
           = submit_tag "Search"
