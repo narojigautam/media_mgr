@@ -14,7 +14,7 @@
  *= require_self
  */
 
-ul.header-ul, ul.content-ul {
+ul {
   list-style-type: none;
   padding-left: 0px;
 }
@@ -27,8 +27,25 @@ ul.header-ul, ul.content-ul {
 .content-ul li {
   width: 150px;
   height: 200px;
-  margin-top: 0px;
+  margin: 0px 0 0 10px;
   vertical-align: top;
+}
+
+.media-item-form ul {
+  width: 400px;
+}
+.media-item-form ul li {
+  margin: 5px;
+  padding: 5px;
+  height: 40px;
+}
+
+.media-item-form li label,.media-item-form li input, .media-item-form li textarea {
+  padding: 5px;
+}
+
+.media-item-form li input, .media-item-form li textarea {
+  float: right;
 }
 
 .header form {

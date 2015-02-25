@@ -1,15 +1,17 @@
 %h3 Create New Media Item
-= form_for @media_item, :html => { :multipart => true } do |f|
-  = f.label :title
-  = f.text_field :title
-  %br
-  = f.label :source
-  = f.text_field :source
-  %br/
-  = f.label :description
-  = f.text_area :description
-  %br
-  = f.label :image
-  = f.file_field :image
-  %br
-  = f.submit "Create"
+= form_for @media_item, :html => { :multipart => true, :class => "media-item-form" } do |f|
+  %ul
+    %li
+      = f.label :title
+      = f.text_field :title
+    %li  
+      = f.label :source
+      = f.text_field :source
+    %li
+      = f.label :description
+      = f.text_area :description
+    %li  
+      = f.label :image
+      = f.file_field :image
+    %li
+      = f.submit "Create"
