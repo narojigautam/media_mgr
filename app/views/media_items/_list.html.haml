@@ -1,7 +1,7 @@
 %ul.content-ul
   - media_items.each do |media_item|
     %li
-      = image_tag "placeholder.png"
+      = image_tag media_item.image.url(:thumb)
       = link_to media_item_path(media_item) do
         = media_item.title
       %p= media_item.description

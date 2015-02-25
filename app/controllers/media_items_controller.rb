@@ -57,6 +57,6 @@ class MediaItemsController < ApplicationController
   end
 
   def media_item_params
-  	params.require(:media_item).permit(:title, :description, :source)
+  	params.require(:media_item).permit(:title, :description, :source, :image)
   end
 end

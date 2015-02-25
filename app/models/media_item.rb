@@ -6,8 +6,14 @@ class MediaItem < ActiveRecord::Base
   belongs_to :user, :class_name => "User", :foreign_key => "user_id"
 
   before_save :set_type
+  before_validation(on: :create) do
+    self.source = "uploaded" if self.image.present?
+  end
 
   delegate :email, :to => :user, :prefix => true
+
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "150x150>" }, :default_url => "placeholder.png"
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def image?
   	self.media_type == "image"
@@ -20,6 +26,7 @@ class MediaItem < ActiveRecord::Base
   private
 
   def set_type
+    self.media_type = "image" and return if self.image.present?
     case source_extention
 	  when /png|jpg|jpeg|gif/
 	    self.media_type = "image"

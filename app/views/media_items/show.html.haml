@@ -1,7 +1,7 @@
 %h1 Media Item Details
 %h3= @media_item.title
 - if @media_item.image?
-  %img{:src => "#{@media_item.source}", :width => "350"}/
+  = image_tag @media_item.image.url(:medium), width: "350px"
 - elsif @media_item.video?
   %video{:controls => "", :width => "350"}
     %source{:src => "#{@media_item.source}", :type => "video/#{@media_item.media_type}"}

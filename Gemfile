@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'haml-rails'
+gem 'paperclip', '~> 4.2'
 
 group :test do
   gem 'rspec-rails', '~> 3.0.0'
